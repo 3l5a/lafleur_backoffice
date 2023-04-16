@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OrderStatus index
+{% endblock %}
+
+{% block body %}
+	<h1>OrderStatus index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>N°</th>
+				<th>NameOrderStatus</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for order_status in order_statuses %}
+				<tr>
+					<td>{{ order_status.id }}</td>
+					<td>{{ order_status.nameOrderStatus }}</td>
+					<td>
+						<a href="{{ path('app_order_status_show', {'id': order_status.id}) }}">Voir</a>
+						<a href="{{ path('app_order_status_edit', {'id': order_status.id}) }}">Éditer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">Il n'y a pas de données à afficher</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_order_status_new') }}">Ajouter</a>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CustomerOrder index
+{% endblock %}
+
+{% block body %}
+	<h1>CustomerOrder index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>N°</th>
+				<th>DateCustomerOrder</th>
+				<th>DeliveryDateCustomerOrder</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for customer_order in customer_orders %}
+				<tr>
+					<td>{{ customer_order.id }}</td>
+					<td>{{ customer_order.dateCustomerOrder ? customer_order.dateCustomerOrder|date('Y-m-d H:i:s') : '' }}</td>
+					<td>{{ customer_order.deliveryDateCustomerOrder ? customer_order.deliveryDateCustomerOrder|date('Y-m-d') : '' }}</td>
+					<td>
+						<a href="{{ path('app_customer_order_show', {'id': customer_order.id}) }}">Voir</a>
+						<a href="{{ path('app_customer_order_edit', {'id': customer_order.id}) }}">Éditer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">Il n'y a pas de données à afficher</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_customer_order_new') }}">Ajouter</a>
+{% endblock %}

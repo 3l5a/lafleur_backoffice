@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LineCustomer
+{% endblock %}
+
+{% block body %}
+	<h1>Ajouter LineCustomer</h1>
+
+	{{ include('line_customer/_form.html.twig') }}
+
+	<a href="{{ path('app_line_customer_index') }}">Retour à la liste</a>
+{% endblock %}

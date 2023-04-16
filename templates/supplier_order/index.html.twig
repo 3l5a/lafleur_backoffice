@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SupplierOrder index
+{% endblock %}
+
+{% block body %}
+	<h1>SupplierOrder index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>N°</th>
+				<th>DateSupplierOrder</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for supplier_order in supplier_orders %}
+				<tr>
+					<td>{{ supplier_order.id }}</td>
+					<td>{{ supplier_order.dateSupplierOrder ? supplier_order.dateSupplierOrder|date('Y-m-d H:i:s') : '' }}</td>
+					<td>
+						<a href="{{ path('app_supplier_order_show', {'id': supplier_order.id}) }}">Voir</a>
+						<a href="{{ path('app_supplier_order_edit', {'id': supplier_order.id}) }}">Éditer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">Il n'y a pas de données à afficher</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_supplier_order_new') }}">Ajouter</a>
+{% endblock %}

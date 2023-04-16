@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LineCustomer index
+{% endblock %}
+
+{% block body %}
+	<h1>LineCustomer index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>QuantityLineCustomer</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for line_customer in line_customers %}
+				<tr>
+					<td>{{ line_customer.quantityLineCustomer }}</td>
+					<td>
+						<a href="{{ path('app_line_customer_show', {'prize': line_customer.prize}) }}">Voir</a>
+						<a href="{{ path('app_line_customer_edit', {'prize': line_customer.prize}) }}">Éditer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="2">Il n'y a pas de données à afficher</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_line_customer_new') }}">Ajouter</a>
+{% endblock %}

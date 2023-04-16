@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Supplier index
+{% endblock %}
+
+{% block body %}
+	<h1>Supplier index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>N°</th>
+				<th>NameSupplier</th>
+				<th>SiretSupplier</th>
+				<th>PhoneSupplier</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for supplier in suppliers %}
+				<tr>
+					<td>{{ supplier.id }}</td>
+					<td>{{ supplier.nameSupplier }}</td>
+					<td>{{ supplier.siretSupplier }}</td>
+					<td>{{ supplier.phoneSupplier }}</td>
+					<td>
+						<a href="{{ path('app_supplier_show', {'id': supplier.id}) }}">Voir</a>
+						<a href="{{ path('app_supplier_edit', {'id': supplier.id}) }}">Éditer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">Il n'y a pas de données à afficher</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_supplier_new') }}">Ajouter</a>
+{% endblock %}

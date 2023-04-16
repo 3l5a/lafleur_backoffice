@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SupplierOrder
+{% endblock %}
+
+{% block body %}
+	<h1>Ajouter SupplierOrder</h1>
+
+	{{ include('supplier_order/_form.html.twig') }}
+
+	<a href="{{ path('app_supplier_order_index') }}">Retour à la liste</a>
+{% endblock %}

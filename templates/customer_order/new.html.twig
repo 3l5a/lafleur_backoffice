@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New CustomerOrder
+{% endblock %}
+
+{% block body %}
+	<h1>Ajouter CustomerOrder</h1>
+
+	{{ include('customer_order/_form.html.twig') }}
+
+	<a href="{{ path('app_customer_order_index') }}">Retour à la liste</a>
+{% endblock %}

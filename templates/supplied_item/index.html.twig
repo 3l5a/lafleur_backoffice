@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SuppliedItem index
+{% endblock %}
+
+{% block body %}
+	<h1>SuppliedItem index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>N°</th>
+				<th>NameSuppliedItem</th>
+				<th>DescriptionSuppliedItem</th>
+				<th>PriceSuppliedItem</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for supplied_item in supplied_items %}
+				<tr>
+					<td>{{ supplied_item.id }}</td>
+					<td>{{ supplied_item.nameSuppliedItem }}</td>
+					<td>{{ supplied_item.descriptionSuppliedItem }}</td>
+					<td>{{ supplied_item.priceSuppliedItem }}</td>
+					<td>
+						<a href="{{ path('app_supplied_item_show', {'id': supplied_item.id}) }}">Voir</a>
+						<a href="{{ path('app_supplied_item_edit', {'id': supplied_item.id}) }}">Éditer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">Il n'y a pas de données à afficher</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_supplied_item_new') }}">Ajouter</a>
+{% endblock %}

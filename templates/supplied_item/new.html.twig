@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SuppliedItem
+{% endblock %}
+
+{% block body %}
+	<h1>Ajouter SuppliedItem</h1>
+
+	{{ include('supplied_item/_form.html.twig') }}
+
+	<a href="{{ path('app_supplied_item_index') }}">Retour à la liste</a>
+{% endblock %}

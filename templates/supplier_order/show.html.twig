@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SupplierOrder
+{% endblock %}
+
+{% block body %}
+	<h1>SupplierOrder</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>N°</th>
+				<td>{{ supplier_order.id }}</td>
+			</tr>
+			<tr>
+				<th>DateSupplierOrder</th>
+				<td>{{ supplier_order.dateSupplierOrder ? supplier_order.dateSupplierOrder|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_supplier_order_index') }}">Retour à la liste</a>
+
+	<a href="{{ path('app_supplier_order_edit', {'id': supplier_order.id}) }}">Éditer</a>
+
+	{{ include('supplier_order/_delete_form.html.twig') }}
+{% endblock %}

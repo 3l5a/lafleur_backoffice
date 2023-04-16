@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SuppliedItem
+{% endblock %}
+
+{% block body %}
+	<h1>SuppliedItem</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>N°</th>
+				<td>{{ supplied_item.id }}</td>
+			</tr>
+			<tr>
+				<th>NameSuppliedItem</th>
+				<td>{{ supplied_item.nameSuppliedItem }}</td>
+			</tr>
+			<tr>
+				<th>DescriptionSuppliedItem</th>
+				<td>{{ supplied_item.descriptionSuppliedItem }}</td>
+			</tr>
+			<tr>
+				<th>PriceSuppliedItem</th>
+				<td>{{ supplied_item.priceSuppliedItem }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_supplied_item_index') }}">Retour à la liste</a>
+
+	<a href="{{ path('app_supplied_item_edit', {'id': supplied_item.id}) }}">Éditer</a>
+
+	{{ include('supplied_item/_delete_form.html.twig') }}
+{% endblock %}

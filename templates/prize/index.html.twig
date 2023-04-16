@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prize index
+{% endblock %}
+
+{% block body %}
+	<h1>Prize index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>N°</th>
+				<th>NamePrize</th>
+				<th>QuantityPrize</th>
+				<th>DescriptionPrize</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for prize in prizes %}
+				<tr>
+					<td>{{ prize.id }}</td>
+					<td>{{ prize.namePrize }}</td>
+					<td>{{ prize.quantityPrize }}</td>
+					<td>{{ prize.descriptionPrize }}</td>
+					<td>
+						<a href="{{ path('app_prize_show', {'id': prize.id}) }}">Voir</a>
+						<a href="{{ path('app_prize_edit', {'id': prize.id}) }}">Éditer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">Il n'y a pas de données à afficher</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_prize_new') }}">Ajouter</a>
+{% endblock %}

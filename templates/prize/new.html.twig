@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Prize
+{% endblock %}
+
+{% block body %}
+	<h1>Ajouter Prize</h1>
+
+	{{ include('prize/_form.html.twig') }}
+
+	<a href="{{ path('app_prize_index') }}">Retour à la liste</a>
+{% endblock %}
