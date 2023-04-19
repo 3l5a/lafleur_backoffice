@@ -10,7 +10,8 @@
 		<thead>
 			<tr>
 				<th>N°</th>
-				<th>NameColor</th>
+				<th>Nom</th>
+				<th>Couleur</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
@@ -19,6 +20,7 @@
 				<tr>
 					<td>{{ color.id }}</td>
 					<td>{{ color.nameColor }}</td>
+					<td>{{ color.codeColor }}</td>
 					<td>
 						<a href="{{ path('app_color_show', {'id': color.id}) }}">Voir</a>
 						<a href="{{ path('app_color_edit', {'id': color.id}) }}">Éditer</a>
