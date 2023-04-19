@@ -7,50 +7,49 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Supplier
- *
- * @ORM\Table(name="supplier", indexes={@ORM\Index(name="fk_supplier_address1_idx", columns={"address_id"})})
- * @ORM\Entity(repositoryClass="App\Repository\SupplierRepository") 
+ * 
  */
+#[ORM\Table(name: 'supplier')]
+#[ORM\Index(name: 'fk_supplier_address1_idx', columns: ['address_id'])]
+#[ORM\Entity(repositoryClass: 'App\Repository\SupplierRepository')]
 class Supplier
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    #[ORM\Column(name: 'id', type: 'integer', nullable: false)]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name_supplier", type="string", length=45, nullable=false)
      */
+    #[ORM\Column(name: 'name_supplier', type: 'string', length: 45, nullable: false)]
     private $nameSupplier;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="siret_supplier", type="string", length=45, nullable=true)
      */
+    #[ORM\Column(name: 'siret_supplier', type: 'string', length: 45, nullable: true)]
     private $siretSupplier;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="phone_supplier", type="string", length=12, nullable=true)
      */
+    #[ORM\Column(name: 'phone_supplier', type: 'string', length: 12, nullable: true)]
     private $phoneSupplier;
 
     /**
      * @var \Address
      *
-     * @ORM\ManyToOne(targetEntity="Address")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="address_id", referencedColumnName="id")
-     * })
      */
+    #[ORM\JoinColumn(name: 'address_id', referencedColumnName: 'id')]
+    #[ORM\ManyToOne(targetEntity: 'Address')]
     private $address;
 
     public function getId(): ?int

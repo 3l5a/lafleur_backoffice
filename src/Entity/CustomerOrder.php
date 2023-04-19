@@ -7,53 +7,51 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CustomerOrder
- *
- * @ORM\Table(name="customer_order", indexes={@ORM\Index(name="fk_customer_order_order_status1_idx", columns={"order_status_id"}), @ORM\Index(name="fk_customer_order_customer1_idx", columns={"customer_id"})})
- * @ORM\Entity(repositoryClass="App\Repository\CustomerOrderRepository") 
+ * 
  */
+#[ORM\Table(name: 'customer_order')]
+#[ORM\Index(name: 'fk_customer_order_order_status1_idx', columns: ['order_status_id'])]
+#[ORM\Index(name: 'fk_customer_order_customer1_idx', columns: ['customer_id'])]
+#[ORM\Entity(repositoryClass: 'App\Repository\CustomerOrderRepository')]
 class CustomerOrder
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    #[ORM\Column(name: 'id', type: 'integer', nullable: false)]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $id;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_customer_order", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
+    #[ORM\Column(name: 'date_customer_order', type: 'datetime', nullable: false, options: ['default' => 'CURRENT_TIMESTAMP'])]
     private $dateCustomerOrder = 'CURRENT_TIMESTAMP';
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="delivery_date_customer_order", type="date", nullable=false)
      */
+    #[ORM\Column(name: 'delivery_date_customer_order', type: 'date', nullable: false)]
     private $deliveryDateCustomerOrder;
 
     /**
      * @var \OrderStatus
      *
-     * @ORM\ManyToOne(targetEntity="OrderStatus")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="order_status_id", referencedColumnName="id")
-     * })
      */
+    #[ORM\JoinColumn(name: 'order_status_id', referencedColumnName: 'id')]
+    #[ORM\ManyToOne(targetEntity: 'OrderStatus')]
     private $orderStatus;
 
     /**
      * @var \Customer
      *
-     * @ORM\ManyToOne(targetEntity="Customer")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
-     * })
      */
+    #[ORM\JoinColumn(name: 'customer_id', referencedColumnName: 'id')]
+    #[ORM\ManyToOne(targetEntity: 'Customer')]
     private $customer;
 
     public function getId(): ?int

@@ -6,43 +6,42 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Address
- *
- * @ORM\Table(name="address", indexes={@ORM\Index(name="fk_address_city_idx", columns={"city_id"})})
- * @ORM\Entity(repositoryClass="App\Repository\AddressRepository") 
+ * 
  * */
+#[ORM\Table(name: 'address')]
+#[ORM\Index(name: 'fk_address_city_idx', columns: ['city_id'])]
+#[ORM\Entity(repositoryClass: 'App\Repository\AddressRepository')]
 class Address
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    #[ORM\Column(name: 'id', type: 'integer', nullable: false)]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $id;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="line1_adress", type="string", length=45, nullable=true)
      */
+    #[ORM\Column(name: 'line1_adress', type: 'string', length: 45, nullable: true)]
     private $line1Adress;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="line2_adress", type="string", length=45, nullable=true)
      */
+    #[ORM\Column(name: 'line2_adress', type: 'string', length: 45, nullable: true)]
     private $line2Adress;
 
     /**
      * @var \City
      *
-     * @ORM\ManyToOne(targetEntity="City")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
-     * })
      */
+    #[ORM\JoinColumn(name: 'city_id', referencedColumnName: 'id')]
+    #[ORM\ManyToOne(targetEntity: 'City')]
     private $city;
 
     public function getId(): ?int

@@ -8,74 +8,72 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * SuppliedItem
- *
- * @ORM\Table(name="supplied_item", indexes={@ORM\Index(name="fk_supplied_item_measurement1_idx", columns={"measurement_id"}), @ORM\Index(name="fk_supplied_item_color1_idx", columns={"color_id"})})
- * @ORM\Entity(repositoryClass="App\Repository\SuppliedItemRepository") 
+ * 
  */
+#[ORM\Table(name: 'supplied_item')]
+#[ORM\Index(name: 'fk_supplied_item_measurement1_idx', columns: ['measurement_id'])]
+#[ORM\Index(name: 'fk_supplied_item_color1_idx', columns: ['color_id'])]
+#[ORM\Entity(repositoryClass: 'App\Repository\SuppliedItemRepository')]
 class SuppliedItem
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    #[ORM\Column(name: 'id', type: 'integer', nullable: false)]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name_supplied_item", type="string", length=45, nullable=false)
      */
+    #[ORM\Column(name: 'name_supplied_item', type: 'string', length: 45, nullable: false)]
     private $nameSuppliedItem;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="description_supplied_item", type="string", length=100, nullable=true)
      */
+    #[ORM\Column(name: 'description_supplied_item', type: 'string', length: 100, nullable: true)]
     private $descriptionSuppliedItem;
 
     /**
      * @var float|null
      *
-     * @ORM\Column(name="price_supplied_item", type="float", precision=6, scale=2, nullable=true)
      */
+    #[ORM\Column(name: 'price_supplied_item', type: 'float', precision: 6, scale: 2, nullable: true)]
     private $priceSuppliedItem;
 
     /**
      * @var \Color
      *
-     * @ORM\ManyToOne(targetEntity="Color")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="color_id", referencedColumnName="id")
-     * })
      */
+    #[ORM\JoinColumn(name: 'color_id', referencedColumnName: 'id')]
+    #[ORM\ManyToOne(targetEntity: 'Color')]
     private $color;
 
     /**
      * @var \Measurement
      *
-     * @ORM\ManyToOne(targetEntity="Measurement")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="measurement_id", referencedColumnName="id")
-     * })
      */
+    #[ORM\JoinColumn(name: 'measurement_id', referencedColumnName: 'id')]
+    #[ORM\ManyToOne(targetEntity: 'Measurement')]
     private $measurement;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="SupplierOrder", mappedBy="suppliedItem")
      */
+    #[ORM\ManyToMany(targetEntity: 'SupplierOrder', mappedBy: 'suppliedItem')]
     private $supplierOrder = array();
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Product", mappedBy="suppliedItem")
      */
+    #[ORM\ManyToMany(targetEntity: 'Product', mappedBy: 'suppliedItem')]
     private $product = array();
 
     /**

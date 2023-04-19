@@ -9,51 +9,45 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * SupplierOrder
- *
- * @ORM\Table(name="supplier_order", indexes={@ORM\Index(name="fk_supplier_order_supplier1_idx", columns={"supplier_id"})})
- * @ORM\Entity(repositoryClass="App\Repository\SupplierOrderRepository") 
+ * 
  */
+#[ORM\Table(name: 'supplier_order')]
+#[ORM\Index(name: 'fk_supplier_order_supplier1_idx', columns: ['supplier_id'])]
+#[ORM\Entity(repositoryClass: 'App\Repository\SupplierOrderRepository')]
 class SupplierOrder
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    #[ORM\Column(name: 'id', type: 'integer', nullable: false)]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $id;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_supplier_order", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
+    #[ORM\Column(name: 'date_supplier_order', type: 'datetime', nullable: false, options: ['default' => 'CURRENT_TIMESTAMP'])]
     private $dateSupplierOrder = 'CURRENT_TIMESTAMP';
 
     /**
      * @var \Supplier
      *
-     * @ORM\ManyToOne(targetEntity="Supplier")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="supplier_id", referencedColumnName="id")
-     * })
      */
+    #[ORM\JoinColumn(name: 'supplier_id', referencedColumnName: 'id')]
+    #[ORM\ManyToOne(targetEntity: 'Supplier')]
     private $supplier;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="SuppliedItem", inversedBy="supplierOrder")
-     * @ORM\JoinTable(name="line_supplier",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="supplier_order_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="supplied_item_id", referencedColumnName="id")
-     *   }
-     * )
      */
+    #[ORM\JoinTable(name: 'line_supplier')]
+    #[ORM\JoinColumn(name: 'supplier_order_id', referencedColumnName: 'id')]
+    #[ORM\InverseJoinColumn(name: 'supplied_item_id', referencedColumnName: 'id')]
+    #[ORM\ManyToMany(targetEntity: 'SuppliedItem', inversedBy: 'supplierOrder')]
     private $suppliedItem = array();
 
     /**

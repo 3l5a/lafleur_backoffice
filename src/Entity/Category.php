@@ -8,33 +8,33 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Category
- *
- * @ORM\Table(name="category")
- * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository") 
+ * 
  */
+#[ORM\Table(name: 'category')]
+#[ORM\Entity(repositoryClass: 'App\Repository\CategoryRepository')]
 class Category
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    #[ORM\Column(name: 'id', type: 'integer', nullable: false)]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name_category", type="string", length=45, nullable=false)
      */
+    #[ORM\Column(name: 'name_category', type: 'string', length: 45, nullable: false)]
     private $nameCategory;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Product", mappedBy="category")
      */
+    #[ORM\ManyToMany(targetEntity: 'Product', mappedBy: 'category')]
     private $product = array();
 
     /**

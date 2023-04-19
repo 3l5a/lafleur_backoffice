@@ -6,15 +6,22 @@ use App\Entity\City;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class CityType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nameCity')
-            ->add('zipCodeCity')
-            ->add('deliverable')
+            ->add('nameCity', TextType::class, [
+                'label' => 'Nom'
+            ])
+            ->add('zipCodeCity', TextType::class, [
+                'label' => 'Code Postal'
+            ])
+            ->add('deliverable', CheckboxType::class, [
+                'label' => 'Livrable'
+            ])
         ;
     }
 

@@ -8,84 +8,74 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Product
- *
- * @ORM\Table(name="product")
- * @ORM\Entity(repositoryClass="App\Repository\ProductRepository") 
+ * 
  */
+#[ORM\Table(name: 'product')]
+#[ORM\Entity(repositoryClass: 'App\Repository\ProductRepository')]
 class Product
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    #[ORM\Column(name: 'id', type: 'integer', nullable: false)]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name_product", type="string", length=45, nullable=false)
      */
+    #[ORM\Column(name: 'name_product', type: 'string', length: 45, nullable: false)]
     private $nameProduct;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="description_product", type="string", length=200, nullable=true)
      */
+    #[ORM\Column(name: 'description_product', type: 'string', length: 200, nullable: true)]
     private $descriptionProduct;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="image_product", type="string", length=45, nullable=true)
      */
+    #[ORM\Column(name: 'image_product', type: 'string', length: 45, nullable: true)]
     private $imageProduct;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="price_product", type="float", precision=6, scale=2, nullable=false)
      */
+    #[ORM\Column(name: 'price_product', type: 'float', precision: 6, scale: 2, nullable: false)]
     private $priceProduct;
 
     /**
      * @var int|null
      *
-     * @ORM\Column(name="quantity_product", type="integer", nullable=true)
      */
+    #[ORM\Column(name: 'quantity_product', type: 'integer', nullable: true)]
     private $quantityProduct;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Category", inversedBy="product")
-     * @ORM\JoinTable(name="product_category",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     *   }
-     * )
      */
+    #[ORM\JoinTable(name: 'product_category')]
+    #[ORM\JoinColumn(name: 'product_id', referencedColumnName: 'id')]
+    #[ORM\InverseJoinColumn(name: 'category_id', referencedColumnName: 'id')]
+    #[ORM\ManyToMany(targetEntity: 'Category', inversedBy: 'product')]
     private $category = array();
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="SuppliedItem", inversedBy="product")
-     * @ORM\JoinTable(name="product_composition",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="supplied_item_id", referencedColumnName="id")
-     *   }
-     * )
      */
+    #[ORM\JoinTable(name: 'product_composition')]
+    #[ORM\JoinColumn(name: 'product_id', referencedColumnName: 'id')]
+    #[ORM\InverseJoinColumn(name: 'supplied_item_id', referencedColumnName: 'id')]
+    #[ORM\ManyToMany(targetEntity: 'SuppliedItem', inversedBy: 'product')]
     private $suppliedItem = array();
 
     /**

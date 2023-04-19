@@ -6,26 +6,26 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Measurement
- *
- * @ORM\Table(name="measurement")
-  * @ORM\Entity(repositoryClass="App\Repository\MeasurementRepository") 
+ * 
  */
+#[ORM\Table(name: 'measurement')]
+#[ORM\Entity(repositoryClass: 'App\Repository\MeasurementRepository')]
 class Measurement
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    #[ORM\Column(name: 'id', type: 'integer', nullable: false)]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="unit_measurement", type="string", length=45, nullable=false)
      */
+    #[ORM\Column(name: 'unit_measurement', type: 'string', length: 45, nullable: false)]
     private $unitMeasurement;
 
     public function getId(): ?int

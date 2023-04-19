@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
 	<div>Ces produits seront bientôt épuisés :
 		{% for product in products %}
 			<li>{{ product.nameProduct }}
@@ -8,4 +9,6 @@
 				{{ product.quantityProduct}}</li>
 		{% endfor %}
 	</div>
+
+
 {% endblock %}

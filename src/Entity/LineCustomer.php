@@ -6,53 +6,50 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * LineCustomer
- *
- * @ORM\Table(name="line_customer", indexes={@ORM\Index(name="fk_customer_order_has_product_customer_order1_idx", columns={"customer_order_id"}), @ORM\Index(name="fk_line_customer_prize1_idx", columns={"prize_id"}), @ORM\Index(name="fk_customer_order_has_product_product1_idx", columns={"product_id"})})
- * @ORM\Entity(repositoryClass="App\Repository\LineCustomerRepository") 
+ * 
  */
+#[ORM\Table(name: 'line_customer')]
+#[ORM\Index(name: 'fk_customer_order_has_product_customer_order1_idx', columns: ['customer_order_id'])]
+#[ORM\Index(name: 'fk_line_customer_prize1_idx', columns: ['prize_id'])]
+#[ORM\Index(name: 'fk_customer_order_has_product_product1_idx', columns: ['product_id'])]
+#[ORM\Entity(repositoryClass: 'App\Repository\LineCustomerRepository')]
 class LineCustomer
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="quantity_line_customer", type="integer", nullable=false)
      */
+    #[ORM\Column(name: 'quantity_line_customer', type: 'integer', nullable: false)]
     private $quantityLineCustomer;
 
     /**
      * @var \Prize
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Prize")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="prize_id", referencedColumnName="id")
-     * })
      */
+    #[ORM\JoinColumn(name: 'prize_id', referencedColumnName: 'id')]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'NONE')]
+    #[ORM\OneToOne(targetEntity: 'Prize')]
     private $prize;
 
     /**
      * @var \CustomerOrder
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="CustomerOrder")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="customer_order_id", referencedColumnName="id")
-     * })
      */
+    #[ORM\JoinColumn(name: 'customer_order_id', referencedColumnName: 'id')]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'NONE')]
+    #[ORM\OneToOne(targetEntity: 'CustomerOrder')]
     private $customerOrder;
 
     /**
      * @var \Product
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Product")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     * })
      */
+    #[ORM\JoinColumn(name: 'product_id', referencedColumnName: 'id')]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'NONE')]
+    #[ORM\OneToOne(targetEntity: 'Product')]
     private $product;
 
     public function getQuantityLineCustomer(): ?int

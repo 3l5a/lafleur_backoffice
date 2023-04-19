@@ -3,14 +3,29 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Welcome!
+			{% block title %}Gestion de stock
 			{% endblock %}
 		</title>
 		<link
 		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 		{% block stylesheets %}
-			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+			<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+			<!-- Bootstrap core CSS -->
+			<link
+			rel="stylesheet" href="{{ asset('lib/bootstrap/css/bootstrap.min.css')}}"/>
+			<!--external css-->
+			<link rel="stylesheet" href="{{ asset('lib/font-awesome/css/font-awesome.css')}}"/>
+			<link rel="stylesheet" href="{{ asset('styles/zabuto_calendar.css')}}"/>
+			<link
+			rel="stylesheet" href="{{ asset('lib/gritter/css/jquery.gritter.css')}}"/>
+
+			<!-- Custom styles for this template -->
+			<link rel="stylesheet" href="{{ asset('styles/style.css')}}"/>
+			<link rel="stylesheet" href="{{ asset('styles/table-responsive.css')}}"/>
+			<link rel="stylesheet" href="{{ asset('styles/to-do.css')}}"/>
+			<script src="{{ asset('lib/chart-master/Chart.js')}}"></script>
 		{% endblock %}
 
 		{% block javascripts %}
@@ -19,7 +34,7 @@
 	</head>
 	<body style="max-width: 1224px; margin: auto;">
 		{% include "partials/_header.html.twig" %}
-
-		{% block body %}{% endblock %}
-	</body>
-</html></body></html>
+		<section id="main-content"> {% block body %}{% endblock %}
+			</section>
+		</body>
+	</html>

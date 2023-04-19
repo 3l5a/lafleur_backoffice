@@ -6,40 +6,40 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * City
- *
- * @ORM\Table(name="city")
- * @ORM\Entity(repositoryClass="App\Repository\CityRepository") 
+ * 
  */
+#[ORM\Table(name: 'city')]
+#[ORM\Entity(repositoryClass: 'App\Repository\CityRepository')]
 class City
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    #[ORM\Column(name: 'id', type: 'integer', nullable: false)]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name_city", type="string", length=100, nullable=false)
      */
+    #[ORM\Column(name: 'name_city', type: 'string', length: 100, nullable: false)]
     private $nameCity;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="zip_code_city", type="integer", nullable=false)
      */
+    #[ORM\Column(name: 'zip_code_city', type: 'integer', nullable: false)]
     private $zipCodeCity;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="deliverable", type="boolean", nullable=false)
      */
+    #[ORM\Column(name: 'deliverable', type: 'boolean', nullable: false)]
     private $deliverable;
 
     public function getId(): ?int

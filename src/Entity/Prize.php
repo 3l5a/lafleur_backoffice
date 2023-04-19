@@ -6,40 +6,40 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Prize
- *
- * @ORM\Table(name="prize")
- * @ORM\Entity(repositoryClass="App\Repository\PrizeRepository") 
+ * 
  */
+#[ORM\Table(name: 'prize')]
+#[ORM\Entity(repositoryClass: 'App\Repository\PrizeRepository')]
 class Prize
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+    #[ORM\Column(name: 'id', type: 'integer', nullable: false)]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'IDENTITY')]
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name_prize", type="string", length=45, nullable=false)
      */
+    #[ORM\Column(name: 'name_prize', type: 'string', length: 45, nullable: false)]
     private $namePrize;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="quantity_prize", type="integer", nullable=false)
      */
+    #[ORM\Column(name: 'quantity_prize', type: 'integer', nullable: false)]
     private $quantityPrize;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="description_prize", type="string", length=100, nullable=true)
      */
+    #[ORM\Column(name: 'description_prize', type: 'string', length: 100, nullable: true)]
     private $descriptionPrize;
 
     public function getId(): ?int

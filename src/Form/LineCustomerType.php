@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\CustomerOrder;
 use App\Entity\LineCustomer;
 use App\Entity\Prize;
+use App\Entity\Product;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,7 +25,10 @@ class LineCustomerType extends AbstractType
                 'class' => CustomerOrder::class,
                 'label' => 'N° de commande'
             ])
-            ->add('product')
+            ->add('product', EntityType::class, [
+                'class' => Product::class,
+                'label' => 'Statut commande'
+            ])
         ;
     }
 
