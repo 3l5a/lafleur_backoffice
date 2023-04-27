@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CustomerOrder
+{% block title %}Commande client
 {% endblock %}
 
 {% block body %}
@@ -13,12 +13,12 @@
 				<td>{{ customer_order.id }}</td>
 			</tr>
 			<tr>
-				<th>DateCustomerOrder</th>
-				<td>{{ customer_order.dateCustomerOrder ? customer_order.dateCustomerOrder|date('Y-m-d H:i:s') : '' }}</td>
+				<th>Date</th>
+				<td>{{ customer_order.dateCustomerOrder ? customer_order.dateCustomerOrder|date('d-m-Y H:i:s') : '' }}</td>
 			</tr>
 			<tr>
-				<th>DeliveryDateCustomerOrder</th>
-				<td>{{ customer_order.deliveryDateCustomerOrder ? customer_order.deliveryDateCustomerOrder|date('Y-m-d') : '' }}</td>
+				<th>Date de livraison</th>
+				<td>{{ customer_order.deliveryDateCustomerOrder ? customer_order.deliveryDateCustomerOrder|date('d-m-Y') : '' }}</td>
 			</tr>
 		</tbody>
 	</table>

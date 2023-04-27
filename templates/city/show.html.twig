@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}City
+{% block title %}Ville
 {% endblock %}
 
 {% block body %}
@@ -13,16 +13,16 @@
 				<td>{{ city.id }}</td>
 			</tr>
 			<tr>
-				<th>NameCity</th>
+				<th>Nom ville</th>
 				<td>{{ city.nameCity }}</td>
 			</tr>
 			<tr>
-				<th>ZipCodeCity</th>
+				<th>Code postal</th>
 				<td>{{ city.zipCodeCity }}</td>
 			</tr>
 			<tr>
-				<th>Deliverable</th>
-				<td>{{ city.deliverable ? 'Yes' : 'No' }}</td>
+				<th>Livrable</th>
+				<td>{{ city.deliverable ? 'Oui' : 'Non' }}</td>
 			</tr>
 		</tbody>
 	</table>

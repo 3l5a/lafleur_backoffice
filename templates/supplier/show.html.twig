@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Supplier
+{% block title %}Fournisseur
 {% endblock %}
 
 {% block body %}
-	<h1>Supplier</h1>
+	<h1>Fournisseur</h1>
 
 	<table class="table">
 		<tbody>
@@ -13,15 +13,15 @@
 				<td>{{ supplier.id }}</td>
 			</tr>
 			<tr>
-				<th>NameSupplier</th>
+				<th>Nom société</th>
 				<td>{{ supplier.nameSupplier }}</td>
 			</tr>
 			<tr>
-				<th>SiretSupplier</th>
+				<th>Siret</th>
 				<td>{{ supplier.siretSupplier }}</td>
 			</tr>
 			<tr>
-				<th>PhoneSupplier</th>
+				<th>Téléphone</th>
 				<td>{{ supplier.phoneSupplier }}</td>
 			</tr>
 		</tbody>

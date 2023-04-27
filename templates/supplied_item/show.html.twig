@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}SuppliedItem
+{% block title %}Produit fournisseur
 {% endblock %}
 
 {% block body %}
-	<h1>SuppliedItem</h1>
+	<h1>Produit fournisseur</h1>
 
 	<table class="table">
 		<tbody>
@@ -13,15 +13,15 @@
 				<td>{{ supplied_item.id }}</td>
 			</tr>
 			<tr>
-				<th>NameSuppliedItem</th>
+				<th>Nom du produit</th>
 				<td>{{ supplied_item.nameSuppliedItem }}</td>
 			</tr>
 			<tr>
-				<th>DescriptionSuppliedItem</th>
+				<th>Description</th>
 				<td>{{ supplied_item.descriptionSuppliedItem }}</td>
 			</tr>
 			<tr>
-				<th>PriceSuppliedItem</th>
+				<th>Prix d'achat HT</th>
 				<td>{{ supplied_item.priceSuppliedItem }}</td>
 			</tr>
 		</tbody>

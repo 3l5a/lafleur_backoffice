@@ -29,6 +29,7 @@ class CustomerOrderType extends AbstractType
                 'class' => Customer::class,
                 'label' => 'Client'
             ])
+            ->add('shippingCost')
         ;
     }
 

@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}SupplierOrder
+{% block title %}Ligne de commande fournisseur
 {% endblock %}
 
 {% block body %}
-	<h1>SupplierOrder</h1>
+	<h1>Ligne de commande fournisseur</h1>
 
 	<table class="table">
 		<tbody>
@@ -13,7 +13,7 @@
 				<td>{{ supplier_order.id }}</td>
 			</tr>
 			<tr>
-				<th>DateSupplierOrder</th>
+				<th>Date</th>
 				<td>{{ supplier_order.dateSupplierOrder ? supplier_order.dateSupplierOrder|date('Y-m-d H:i:s') : '' }}</td>
 			</tr>
 		</tbody>

@@ -54,6 +54,9 @@ class CustomerOrder
     #[ORM\ManyToOne(targetEntity: 'Customer')]
     private $customer;
 
+    #[ORM\Column(type: Types::SMALLINT)]
+    private ?int $shipping_cost = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -110,6 +113,18 @@ class CustomerOrder
     public function __toString()
     {
         return $this->id;
+    }
+
+    public function getShippingCost(): ?int
+    {
+        return $this->shipping_cost;
+    }
+
+    public function setShippingCost(int $shipping_cost): self
+    {
+        $this->shipping_cost = $shipping_cost;
+
+        return $this;
     }
 
 }

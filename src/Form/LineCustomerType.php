@@ -19,7 +19,7 @@ class LineCustomerType extends AbstractType
             ->add('quantityLineCustomer')
             ->add('prize', EntityType::class, [
                 'class' => Prize::class,
-                'label' => 'Prix lotterie'
+                'label' => 'Prix loterie'
             ])
             ->add('customerOrder', EntityType::class, [
                 'class' => CustomerOrder::class,
@@ -27,7 +27,7 @@ class LineCustomerType extends AbstractType
             ])
             ->add('product', EntityType::class, [
                 'class' => Product::class,
-                'label' => 'Statut commande'
+                'label' => 'Produit commandé'
             ])
         ;
     }

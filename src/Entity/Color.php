@@ -26,7 +26,7 @@ class Color
      *
      */
     #[ORM\Column(name: 'name_color', type: 'string', length: 45, nullable: false)]
-    private $nameColor;
+    private $nameColor = "";
 
     #[ORM\Column(length: 28)]
     private ?string $codeColor = null;
@@ -64,5 +64,4 @@ class Color
 
         return $this;
     }
-
 }

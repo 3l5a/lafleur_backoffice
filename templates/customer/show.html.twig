@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Customer
+{% block title %}Clients
 {% endblock %}
 
 {% block body %}
@@ -13,23 +13,19 @@
 				<td>{{ customer.id }}</td>
 			</tr>
 			<tr>
-				<th>FirstNameCustomer</th>
+				<th>Prénom</th>
 				<td>{{ customer.firstNameCustomer }}</td>
 			</tr>
 			<tr>
-				<th>LastNameCustomer</th>
+				<th>Nom</th>
 				<td>{{ customer.lastNameCustomer }}</td>
 			</tr>
 			<tr>
-				<th>EmailCustomer</th>
+				<th>Email</th>
 				<td>{{ customer.emailCustomer }}</td>
 			</tr>
 			<tr>
-				<th>PasswordCustomer</th>
-				<td>{{ customer.passwordCustomer }}</td>
-			</tr>
-			<tr>
-				<th>Role</th>
+				<th>Rôle</th>
 				<td>{{ customer.role }}</td>
 			</tr>
 		</tbody>
